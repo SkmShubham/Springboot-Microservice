@@ -31,7 +31,7 @@ services:
       - service-registry
       - cloud-config-server
   user-service:
-    image: skmshubham/user-service:latest
+    image: skmshubhamdocker/user-service:latest
     environment:
       - JAVA_OPTS=
         -DEUREKA_SERVER=http://service-registry:8761/eureka
