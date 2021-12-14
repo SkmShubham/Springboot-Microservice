@@ -1,5 +1,4 @@
 FROM openjdk:11
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} department-service.jar
-ENTRYPOINT ["java","-jar","/department-service.jar"]
-EXPOSE 9001
+ADD target/*.jar app.jar
+ENV JAVA_OPTS=''
+ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -jar app.jar" ]
