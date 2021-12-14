@@ -1,5 +1,5 @@
 FROM openjdk:11
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} hystrix-dashboard.jar
-ENTRYPOINT ["java","-jar","/hystrix-dashboard.jar"]
+ADD target/*.jar app.jar
 EXPOSE 9295
+ENV JAVA_OPTS=''
+ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -jar app.jar" ]
